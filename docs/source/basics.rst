@@ -35,16 +35,16 @@ If you already have a django ORM for biological data, it is straigtforward to ge
     api.register(YourResource())
 
     urlpatterns = patterns('',
-      (r'^api/', include(api.urls)),
+      url(r'^api/', include(api.urls)),
       )
 
 Doing so generates a api that is accessible from this url:::
    
-   /api/yourdata
+   /api/das/yourdata
 
 Querying over features:::
 
-   /api/yourdata/features?segment=chr1:20,60
+   /api/das/yourdata/features?segment=chr1:20,60
 
 Excluding Fields from the return can be done much like in django-tastypie::
 

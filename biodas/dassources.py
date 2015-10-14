@@ -2,7 +2,7 @@
 """
 from itertools import izip
 
-from django.conf.urls.defaults import url
+from django.conf.urls import url
 from django.http import HttpResponse
 from django.db.models import Q
 from tastypie.bundle import Bundle

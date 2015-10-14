@@ -4,7 +4,8 @@ import lxml
 from lxml.etree import Element, tostring
 import json
 from tastypie.resources import Serializer
-from tastypie.serializers import get_type_string, force_unicode
+from tastypie.serializers import get_type_string
+from django.utils.encoding import force_text
 from tastypie.bundle import Bundle
 #from tastypie.utils.mime import determine_format
 
@@ -101,7 +102,7 @@ class DASSerializer(Serializer):
                 if isinstance(simple_data, unicode):
                     element.text = simple_data
                 else:
-                    element.text = force_unicode(simple_data)
+                    element.text = force_text(simple_data)
         return element
 
     def serialize(self, bundle, format='application/json', options={}):

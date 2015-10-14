@@ -1,5 +1,5 @@
 from django.core.exceptions import ImproperlyConfigured
-from django.conf.urls.defaults import *
+from django.conf.urls import patterns, url, include
 from django.http import HttpResponse
 from tastypie.api import Api
 from tastypie.resources import Resource
@@ -52,7 +52,6 @@ class DAS(Api):
 
         return(urlpatterns)
 
-
     def top_level(self, request, api_name=None):
         """
         A view that returns a serialized list of all DAS_sources in registers.
@@ -85,7 +84,6 @@ class DAS(Api):
                      content_type=build_content_type(desired_format))
         response = add_das_headers(response, self.version)
         return response
-
 
     def auto_generate_sources(self, path):
         """ Auto generate resources and attach them to the server from all
